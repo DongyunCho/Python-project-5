@@ -1,0 +1,45 @@
+"""
+this program does
+the following game called 'rolling dice'  
+by Dongyun from Korea written 
+"""
+
+
+print "Start \"rolling dice\""
+
+from random import randint
+from time import sleep
+
+def get_user_guess():
+    user_guess = int(raw_input("Guess a number!: "))
+    return user_guess
+  
+def roll_dice(number_of_sides):
+    r1 = randint(1, number_of_sides)
+    r2 = randint(1, number_of_sides)
+    max_val = number_of_sides * 2
+    print "The maximum possible value is " + str(max_val)
+    print "wait..."
+    sleep(2)
+    user_guess = get_user_guess()
+    if user_guess > max_val:
+        print "Invalid value!"
+        return
+    else :
+        print "Rolling..."
+        sleep(2)
+        print "first value is %d" % r1
+        sleep(2)
+        print "second value is %d" % r2
+        sleep(1)
+        if user_guess > r1+r2:
+            print "You win!"
+            return
+        elif user_guess == r1+r2:
+            print "Again"
+            return 
+  # How???????
+        else:
+            print "You loose!"
+      
+roll_dice(6)
